@@ -1,0 +1,58 @@
+	[
+	{
+		"id": 1,
+		"nombre": "hamburguesa simple",
+		"cantidad": 1,
+		"desc": "Hamburguesa simple de pan y carne",
+		"precio": 1200,
+		"img": "img/simple.png"
+	},
+	{
+		"id": 2,
+		"nombre": "hamburguesa doble",
+		"cantidad": 1,
+		"desc": "Hambuguesa con doble medallon de carne",
+		"precio": 1500,
+		"img": "img/doble.png"
+	},
+	{
+		"id": 3,
+		"nombre": "hamburguesa de Cheddar",
+		"cantidad": 1,
+		"desc": "Hamburguesa de de carne con cheddar",
+		"precio": 1570,
+		"img": "img/cheddar.png"
+	},
+	{
+		"id": 4,
+		"nombre": "hamburguesa stackweb",
+		"cantidad": 1,
+		"desc": "Hamburguesa  doble cheddar",
+		"precio": 1000,
+		"img": "img/cheddar2.png"
+	},
+	{
+		"id": 5,
+		"nombre": "hamburguesa trple",
+		"cantidad": 1,
+		"desc": "Hamburguesa de triple medallon con panceta",
+		"precio": 1200,
+		"img": "img/trple.png"
+	},
+	{
+		"id": 6,
+		"nombre": "hamburguesa Bomba",
+		"cantidad": 1,
+		"desc": "Hamburguesa con 4 medallones de carne +panceta y salsa especial",
+		"precio": 1200,
+		"img": "img/bomba.png"
+	},
+	{
+		"id": 7,
+		"nombre": "Hamburguesa sodio Potacio",
+		"cantidad": 1,
+		"desc": "4 medallones de carne más cheddar y panceta",
+		"precio": 1400,
+		"img": "img/Cuadruple.png"
+	}
+	]
