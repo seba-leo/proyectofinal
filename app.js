@@ -4,38 +4,32 @@ const precioTotal = document.querySelector("#precioTotal");
 const Terminar=document.querySelector('#Terminar')
 let carrito=[]
 let carritobuy=[]
-document.addEventListener("DOMContentLoaded", () => {
-    mostrartodosproductos()
-})
-//trae los arhivos json
-async function mostrartodosproductos(){
-    /* Trae el archivo json con todos los productos y los muestra */
-    const productosFetch = await fetch("stockProduct.json")
-    const productosJson = await productosFetch.json()
-    mostrarproducto(productosJson)
+function mostrarproducto() {
+    fetch('stockProduct.json')
+        .then(respuesta => respuesta.json()) //Indicamos el formato en que se desea obtener la información
+        .then(burguer => {
+            burguer.forEach(productos => {
+                const{id,nombre,desc,precio,cantidad,img}=productos
+                carrito.push(productos)
+                const row=document.querySelector('.row')
+                row.innerHTML +=`  
+                <div class="col"> 
+                <div class="card mt-3" style="width: 18rem;">
+                <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">${nombre}</h5>
+                <p class="card-text">Precio: ${precio}</p>
+                <p class="card-text">Descripcion: ${desc}</p>
+                <p class="card-text">Cantidad: ${cantidad}</p>
+                    <button onclick="agregarProductos(${id})" type="button" id="btn">agregar al carrito</button>
+                </div>
+                </div>` 
+            });
+        }) // Aquí mostramos dicha información
+        .catch(error => console.log('Hubo un error'+ error))
 }
-mostrartodosproductos()
-//muestra productos en el index
-const mostrarproducto= productos=>{
-    carrito.length=0
-    productos.forEach(productos=>{
-    carrito.push(productos)
-    const{id,nombre,desc,precio,cantidad,img}=productos//desestructuracion
-    const row=document.querySelector('.row')
-    row.innerHTML +=`  
-    <div class="col"> 
-    <div class="card mt-3" style="width: 18rem;">
-    <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
-    <div class="card-body">
-    <h5 class="card-title">${nombre}</h5>
-    <p class="card-text">Precio: ${precio}</p>
-    <p class="card-text">Descripcion: ${desc}</p>
-    <p class="card-text">Cantidad: ${cantidad}</p>
-        <button onclick="agregarProductos(${id})" type="button" id="btn">agregar al carrito</button>
-    </div>
-    </div>`    
-}
-)}
+mostrarproducto()
+
 const agregarProductos=(id)=>{//suma cantidad y no permite q sume la card total
     const existe=carrito.some(prod=> prod.id===id)//.some verifica si existe 
     if (existe) {//si existe el Id suma cantidad++
