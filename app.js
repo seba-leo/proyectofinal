@@ -6,7 +6,7 @@ let carrito=[]
 let carritobuy=[]
 function mostrarproducto() {
     fetch('stockProduct.json')
-        .then(respuesta => respuesta.json()) //Indicamos el formato en que se desea obtener la información
+        .then(respuesta => respuesta.json()) 
         .then(burguer => {
             burguer.forEach(productos => {
                 const{id,nombre,desc,precio,cantidad,img}=productos
@@ -25,7 +25,7 @@ function mostrarproducto() {
                 </div>
                 </div>` 
             });
-        }) // Aquí mostramos dicha información
+        }) 
         .catch(error => console.log('Hubo un error'+ error))
 }
 mostrarproducto()
