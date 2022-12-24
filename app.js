@@ -30,17 +30,18 @@ function mostrarproducto() {
 }
 mostrarproducto()
 
-const agregarProductos=(id)=>{//suma cantidad y no permite q sume la card total
-    const existe=carrito.some(prod=> prod.id===id)//.some verifica si existe 
-    if (existe) {//si existe el Id suma cantidad++
-        const prod=carrito.map(prod =>{//.map recorre el arreglo y suma
+const agregarProductos=(id)=>{
+    const existe=carritobuy.some(prod=> prod.id===id)
+    if (existe) {
+        const prod=carritobuy.map(prod =>{
             if (prod.id===id) {
                 prod.cantidad++;
-                carritobuy.push(prod);
+                
             }
         })
-    }else{// si el producto no esta suma al arreglo carrito
-        const item= carritobuy.find((prod)=>prod.id===id) //si dentro de stockproduct el id es igual al Id lo agrega al carrito
+    }else{
+        const item= carrito.find((prod)=>prod.id===id)
+        carritobuy.push(item)
     }
         Swal.fire({
             icon: 'success',
@@ -54,7 +55,7 @@ mostrarCarrito()
 function mostrarCarrito(){//crea la card
     const modalbody=document.querySelector('.modal .modal-body')
     modalbody.innerHTML=' ';//evita q se repita
-    carrito.forEach(producto => {
+    carritobuy.forEach(producto => {
         const{id,nombre,desc,precio,cantidad,img}=producto
         modalbody.innerHTML +=`<div class="card">
         <img src="${img} " class="card-img-top" alt="...">
