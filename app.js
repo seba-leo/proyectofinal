@@ -69,9 +69,9 @@ function mostrarCarrito(){//crea la card
     precioTotal.textContent = carritobuy.reduce((acc, prod) =>  acc + prod.cantidad * prod.precio,0);
 }        
 function eliminarProducto(id) {//elimina los card del mobal
-    carrito.forEach(producto=>{
+    carritobuy.forEach(producto=>{
         const burguerid = id;
-        carrito = carrito.filter((burguer) => burguer.id !== burguerid);
+        carritobuy = carritobuy.filter((burguer) => burguer.id !== burguerid);
         Swal.fire({
             icon: 'success',
             title: `Eliminaste producto `,
@@ -120,6 +120,7 @@ Terminar.addEventListener('click',()=>{
         })
     }
     })
+
 
 
 
