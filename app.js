@@ -40,7 +40,7 @@ const agregarProductos=(id)=>{//suma cantidad y no permite q sume la card total
             }
         })
     }else{// si el producto no esta suma al arreglo carrito
-        const item= carrito.find((prod)=>prod.id===id) //si dentro de stockproduct el id es igual al Id lo agrega al carrito
+        const item= carritobuy.find((prod)=>prod.id===id) //si dentro de stockproduct el id es igual al Id lo agrega al carrito
     }
         Swal.fire({
             icon: 'success',
