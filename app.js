@@ -66,7 +66,7 @@ function mostrarCarrito(){//crea la card
             <p class="card-text">${cantidad}</p>
             <button id="btn" onclick="eliminarProducto(${id})">Eliminar producto</button>`
     });
-    precioTotal.textContent = carrito.reduce((acc, prod) =>  acc + prod.cantidad * prod.precio,0);
+    precioTotal.textContent = carritobuy.reduce((acc, prod) =>  acc + prod.cantidad * prod.precio,0);
 }        
 function eliminarProducto(id) {//elimina los card del mobal
     carrito.forEach(producto=>{
